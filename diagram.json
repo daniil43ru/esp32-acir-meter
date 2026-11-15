@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "author": "ACIR meter v2 (Kelvin + lock-in + LM358)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-velxio-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled",
+      "top": 0,
+      "left": 0,
+      "attrs": {
+        "displayType": "ssd1306",
+        "address": "0x3C"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 200,
+      "left": 0,
+      "attrs": {
+        "color": "green",
+        "label": "MODE"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 280,
+      "left": 0,
+      "attrs": {
+        "color": "blue",
+        "label": "CAL"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 360,
+      "left": 0,
+      "attrs": {
+        "volume": "0.2"
+      }
+    },
+    {
+      "type": "wokwi-capacitor",
+      "id": "cdc",
+      "top": 100,
+      "left": 620,
+      "attrs": {
+        "value": "10u"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rforce",
+      "top": 180,
+      "left": 620,
+      "attrs": {
+        "value": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rsh",
+      "top": 260,
+      "left": 620,
+      "attrs": {
+        "value": "1"
+      }
+    },
+    {
+      "type": "wokwi-battery-aa",
+      "id": "bat",
+      "top": 0,
+      "left": 760,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "ri",
+      "top": 110,
+      "left": 760,
+      "attrs": {
+        "value": "0.05"
+      }
+    },
+    {
+      "type": "wokwi-capacitor",
+      "id": "cin",
+      "top": 200,
+      "left": 760,
+      "attrs": {
+        "value": "1u"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 110,
+      "left": 890,
+      "attrs": {
+        "value": "100000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 180,
+      "left": 890,
+      "attrs": {
+        "value": "100000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rb1",
+      "top": 270,
+      "left": 890,
+      "attrs": {
+        "value": "100000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rb2",
+      "top": 340,
+      "left": 890,
+      "attrs": {
+        "value": "100000"
+      }
+    },
+    {
+      "type": "wokwi-opamp-lm358",
+      "id": "u1",
+      "top": 230,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rf",
+      "top": 120,
+      "left": 1140,
+      "attrs": {
+        "value": "47000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rg",
+      "top": 330,
+      "left": 1140,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-capacitor",
+      "id": "crg",
+      "top": 410,
+      "left": 1020,
+      "attrs": {
+        "value": "10u"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:21",
+      "oled:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:22",
+      "oled:SCL",
+      "green",
+      []
+    ],
+    [
+      "esp:3V3",
+      "oled:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "oled:GND",
+      "black",
+      []
+    ],
+    [
+      "btn1:1.l",
+      "esp:4",
+      "green",
+      []
+    ],
+    [
+      "btn1:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "btn2:1.l",
+      "esp:26",
+      "blue",
+      []
+    ],
+    [
+      "btn2:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "bz1:1",
+      "esp:23",
+      "green",
+      []
+    ],
+    [
+      "bz1:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:25",
+      "cdc:1",
+      "orange",
+      []
+    ],
+    [
+      "cdc:2",
+      "rforce:1",
+      "orange",
+      []
+    ],
+    [
+      "rforce:2",
+      "rsh:1",
+      "orange",
+      []
+    ],
+    [
+      "bat:−",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "cin:2",
+      "u1:IN+",
+      "blue",
+      []
+    ],
+    [
+      "u1:IN+",
+      "rb1:1",
+      "blue",
+      []
+    ],
+    [
+      "rb1:2",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "u1:IN+",
+      "rb2:1",
+      "blue",
+      []
+    ],
+    [
+      "rb2:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "u1:IN-",
+      "rg:1",
+      "purple",
+      []
+    ],
+    [
+      "rg:2",
+      "crg:1",
+      "purple",
+      []
+    ],
+    [
+      "crg:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "u1:IN-",
+      "rf:1",
+      "purple",
+      []
+    ],
+    [
+      "rf:2",
+      "u1:OUT",
+      "purple",
+      []
+    ],
+    [
+      "u1:OUT",
+      "esp:35",
+      "cyan",
+      []
+    ],
+    [
+      "r1:2",
+      "esp:34",
+      "grey",
+      []
+    ],
+    [
+      "r1:2",
+      "r2:1",
+      "grey",
+      []
+    ],
+    [
+      "r2:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "rsh:2",
+      "ri:2",
+      "green",
+      []
+    ],
+    [
+      "ri:1",
+      "bat:+",
+      "green",
+      []
+    ],
+    [
+      "bat:+",
+      "cin:1",
+      "green",
+      []
+    ],
+    [
+      "bat:+",
+      "r1:1",
+      "green",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
