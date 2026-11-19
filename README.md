@@ -3,6 +3,10 @@
 An **AC internal-resistance (IR) meter** for lithium cells (18650, 21700 and
 similar), built on an ESP32 with a Kelvin (4-wire) sense arrangement.
 
+![ESP32 ACIR meter](docs/social-preview.png)
+
+**[Landing page with the full write-up →](https://daniil43ru.github.io/esp32-acir-meter-demo/)**
+
 > **Project status: prototype, NOT verified on hardware.**
 > The firmware compiles and the signal-processing math is covered by unit tests,
 > but the circuit has never been assembled on a breadboard by the author.
